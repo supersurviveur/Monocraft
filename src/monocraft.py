@@ -116,6 +116,8 @@ def generateFont(*, black=False, bold=False, semibold=False, light=False, extral
 		font.descent = PIXEL_SIZE
 		font.em = PIXEL_SIZE * 9
 		font.upos = -PIXEL_SIZE  # Underline position
+		font.os2_typoascent = round(PIXEL_SIZE * 1)
+		font.os2_typodescent = -round(PIXEL_SIZE * 1.5)
 		font.addLookup("ligatures", "gsub_ligature", (),
 					   (("liga", (("dflt", ("dflt")), ("latn", ("dflt")))), ))
 		font.addLookupSubtable("ligatures", "ligatures-subtable")
@@ -124,6 +126,7 @@ def generateFont(*, black=False, bold=False, semibold=False, light=False, extral
 	if font is not None:
 		font.macstyle = 0
 		font.os2_stylemap = 0x40
+		font.os2_weight = 400
 	font = fontList[1]
 	if font is not None:
 		font.fontname = "Monocraft-Italic"
@@ -153,6 +156,7 @@ def generateFont(*, black=False, bold=False, semibold=False, light=False, extral
 		font.weight = "Bold"
 		font.macstyle = 1
 		font.os2_stylemap = 0x20
+		font.os2_weight = 600
 	font = fontList[5]
 	if font is not None:
 		font.fontname = "Monocraft-Bold-Italic"
